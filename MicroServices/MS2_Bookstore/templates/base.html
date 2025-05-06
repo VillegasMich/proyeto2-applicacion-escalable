@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url_for('home') }}">Bookstore</a>
+        <a class="navbar-brand" href="{{ ms1_auth_uri }}">Bookstore</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-  <a class="nav-link" href="{{ ms2_bookstore_uri + "/book/catalog" }}"
+              <a class="nav-link" href="{{ url_for('book.catalog') }}"
                 >Catálogo</a
               >
             </li>
@@ -34,28 +34,22 @@
               </span>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ ms2_bookstore_uri + "/book/my_books" }}"
+              <a class="nav-link" href="{{ url_for('book.my_books') }}"
                 >Mis Libros</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('admin.list_users') }}"
-                >Usuarios</a
-              >
+              <a class="nav-link" href="{{ ms1_auth_uri + "/admin/users" }}">Usuarios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('auth.logout') }}"
-                >Cerrar Sesión</a
-              >
+              <a class="nav-link" href="{{ ms1_auth_uri + "/logout" }}">Cerrar Sesión</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+              <a class="nav-link" href="{{ ms1_auth_uri + "/login" }}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('auth.register') }}"
-                >Registro</a
-              >
+              <a class="nav-link" href="{{ ms1_auth_uri + "/register" }}">Registro</a>
             </li>
             {% endif %}
           </ul>

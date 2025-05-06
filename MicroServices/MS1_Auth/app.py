@@ -22,6 +22,11 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+@app.context_processor
+def inject_auth_uri():
+    return {"ms2_bookstore_uri": os.getenv("MS2_BOOKSTORE_URI") or ""}
+
+
 app.register_blueprint(auth)
 app.register_blueprint(admin)
 
